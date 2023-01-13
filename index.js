@@ -1,17 +1,36 @@
 import express from 'express';
 import cors from 'cors';
-import path from 'path';
 import { v4 as uuidv4, v4 } from 'uuid';
 import * as pizzaService from './services/pizzas.js';
-import fs from 'fs';
+
+import pkg from 'pg';
+const { Client } = pkg;
+const client = new Client({
+  host: 'localhost',
+  user: 'postgres',
+  password: 'kozak1488'
+})
+await client.connect()
+
+const result = await client.query(`
+  SELECT * from todos
+`);
+
+console.log(result.rows)
 
 const app = express();
-
 const PORT = 5000;
 
 app.use(cors());
 app.use(express.json())
 app.use(express.urlencoded({ extended: true} ));
+
+app.get('/todos', async (req, res) => {
+  const todos = await client.query(`
+  SELECT * from todos
+`);
+res.send(todos.rows)
+})
 
 app.get('/pizzas', async (req, res) => {
   const pizzas = await pizzaService.getAll();
