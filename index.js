@@ -2,8 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import path from 'path';
 import { v4 as uuidv4, v4 } from 'uuid';
-// import fileUpload from 'express-fileupload';
-// import {fileURLToPath} from 'url';
 import * as pizzaService from './services/pizzas.js';
 import fs from 'fs';
 
@@ -14,37 +12,15 @@ const PORT = 5000;
 app.use(cors());
 app.use(express.json())
 app.use(express.urlencoded({ extended: true} ));
-// app.use(fileUpload());
 
-// const filtePath = path.resolve('data', 'pizzas.json');
-
-// function read() {
-//     const data = fs.readFileSync(filtePath, 'utf-8');
-  
-//     return JSON.parse(data);
-//   };
-
-//   function write(pizzas) {
-//       const data = JSON.stringify(pizzas, null, 2);
-    
-//       fs.writeFileSync(filtePath, data);
-//     }
-
-// export function createPizza(pizza) {
-//   const pizzas = read();
-
-//   pizzas.push(pizza);
-//   write(pizzas);
-// }
-
-app.get('/pizzas', (req, res) => {
-  const pizzas = pizzaService.getAll();
+app.get('/pizzas', async (req, res) => {
+  const pizzas = await pizzaService.getAll();
   res.send(pizzas);
 });
 
-app.get('/pizzas/:pizzaId', (req, res) => {
+app.get('/pizzas/:pizzaId', async (req, res) => {
   const { pizzaId } = req.params;
-  const foundPizza = pizzaService.getOne(pizzaId);
+  const foundPizza = await pizzaService.getOne(pizzaId);
   if (!foundPizza) {
     res.sendStatus(404);
     return;
@@ -52,7 +28,7 @@ app.get('/pizzas/:pizzaId', (req, res) => {
   res.send(foundPizza);
 });
 
-app.post('/pizzas', (req, res) => {
+app.post('/pizzas', async (req, res) => {
   const {name, components, prices, sizes, souses, types, dough, img} = req.body;
   const id = uuidv4();
 
@@ -68,7 +44,7 @@ app.post('/pizzas', (req, res) => {
     return;
   }
 
-  pizzaService.create(newPizza)
+  await pizzaService.create(newPizza)
 
   res.statusCode = 201;
   res.send(newPizza);

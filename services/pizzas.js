@@ -1,34 +1,34 @@
 import path from 'path';
-import fs from 'fs';
+import fs from 'fs/promises';
 
 const filtePath = path.resolve('data', 'pizzas.json');
 
-function read() {
-    const data = fs.readFileSync(filtePath, 'utf-8');
+async function read() {
+    const data = await fs.readFile(filtePath, 'utf-8');
   
     return JSON.parse(data);
   };
 
-  function write(pizzas) {
+  async function write(pizzas) {
       const data = JSON.stringify(pizzas, null, 2);
     
-      fs.writeFileSync(filtePath, data);
+      await fs.writeFile(filtePath, data);
     }
 
-export function getAll() {
-  const pizzas = read();
+export async function getAll() {
+  const pizzas = await read();
   return pizzas;
 }
 
-export function getOne(pizzaId) {
-  const pizzas = read();
+export async function getOne(pizzaId) {
+  const pizzas = await read();
   const foundPizza = pizzas.find(pizza => pizza.id === pizzaId);
   return foundPizza;
 }
 
-export function create(pizza) {
-  const pizzas = read();
+export async function create(pizza) {
+  const pizzas = await read();
 
   pizzas.push(pizza);
-  write(pizzas);
+  await write(pizzas);
 }
