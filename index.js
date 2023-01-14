@@ -1,36 +1,52 @@
 import express from 'express';
 import cors from 'cors';
-import { v4 as uuidv4, v4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import * as pizzaService from './services/pizzas.js';
-
-import pkg from 'pg';
-const { Client } = pkg;
-const client = new Client({
-  host: 'localhost',
-  user: 'postgres',
-  password: 'kozak1488'
-})
-await client.connect()
-
-const result = await client.query(`
-  SELECT * from todos
-`);
-
-console.log(result.rows)
+import * as sushiService from './services/sushi.js';
 
 const app = express();
 const PORT = 5000;
 
 app.use(cors());
-app.use(express.json())
+app.use(express.json());
 app.use(express.urlencoded({ extended: true} ));
 
-app.get('/todos', async (req, res) => {
-  const todos = await client.query(`
-  SELECT * from todos
-`);
-res.send(todos.rows)
-})
+app.get('/sushi', async (req, res) => {
+  const sushi = await sushiService.getAll();
+  res.send(sushi)
+});
+
+app.get('/sushi/:sushiId', async (req, res) => {
+  const { sushiId } = req.params;
+  const foundSushi = await sushiService.getOne(sushiId);
+  if (!foundSushi) {
+    res.sendStatus(404);
+    return;
+  }
+  res.send(foundSushi);
+});
+
+app.post('/sushi', async (req, res) => {
+  const {name, components, price, types, weight, count, img} = req.body;
+  const id = uuidv4();
+
+  if (!name || !components || !price || !weight || !count || !types || !img) {
+    res.sendStatus(404);
+    return;
+  }
+
+  const newProduct = {name, components, price, weight, count, types, img, id};
+
+  if (!newProduct) {
+    res.sendStatus(422);
+    return;
+  }
+
+  await sushiService.create(newProduct)
+
+  res.statusCode = 201;
+  res.send(newProduct);
+});
 
 app.get('/pizzas', async (req, res) => {
   const pizzas = await pizzaService.getAll();
