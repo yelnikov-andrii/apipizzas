@@ -18,7 +18,11 @@ app.use(express.urlencoded({ extended: true} ));
 
 app.get('/soupes', async (req, res) => {
   const soupes = await soupeService.getAll();
-  res.send(soupes);
+  if (req.query.count) {
+    res.send(soupes.slice(0, req.query.count))
+  } else {
+    res.send(soupes);
+  }
 });
 
 app.get('/soupes/:soupeId', async (req, res) => {
@@ -55,7 +59,11 @@ app.post('/soupes', async (req, res) => {
 
 app.get('/snacks', async (req, res) => {
   const snacks = await snackService.getAll();
-  res.send(snacks);
+  if (req.query.count) {
+    res.send(snacks.slice(0, req.query.count))
+  } else {
+    res.send(snacks);
+  }
 });
 
 app.get('/snacks/:snackId', async (req, res) => {
@@ -92,7 +100,11 @@ app.post('/snacks', async (req, res) => {
 
 app.get('/mangal', async (req, res) => {
   const mangal = await mangalService.getAll();
-  res.send(mangal);
+  if (req.query.count) {
+    res.send(mangal.slice(0, req.query.count))
+  } else {
+    res.send(mangal);
+  }
 });
 
 app.get('/mangal/:mangalId', async (req, res) => {
@@ -129,7 +141,11 @@ app.post('/mangal', async (req, res) => {
 
 app.get('/salads', async (req, res) => {
   const salads = await saladService.getAll();
-  res.send(salads);
+  if (req.query.count) {
+    res.send(salads.slice(0, req.query.count))
+  } else {
+    res.send(salads);
+  }
 });
 
 app.get('/salads/:saladId', async (req, res) => {
@@ -166,7 +182,11 @@ app.post('/salads', async (req, res) => {
 
 app.get('/shaurma', async (req, res) => {
   const shaurmas = await shaurmaService.getAll();
-  res.send(shaurmas);
+  if (req.query.count) {
+    res.send(shaurmas.slice(0, req.query.count))
+  } else {
+    res.send(shaurmas);
+  }
 });
 
 app.get('/shaurma/:shaurmaId', async (req, res) => {
@@ -201,41 +221,13 @@ app.post('/shaurma', async (req, res) => {
   res.send(newProduct);
 });
 
-app.get('/sushi/:sushiId', async (req, res) => {
-  const { sushiId } = req.params;
-  const foundSushi = await sushiService.getOne(sushiId);
-  if (!foundSushi) {
-    res.sendStatus(404);
-    return;
-  }
-  res.send(foundSushi);
-});
-
-app.post('/sushi', async (req, res) => {
-  const {name, components, price, types, weight, count, img} = req.body;
-  const id = uuidv4();
-
-  if (!name || !components || !price || !weight || !count || !types || !img) {
-    res.sendStatus(404);
-    return;
-  }
-
-  const newProduct = {name, components, price, weight, count, types, img, id};
-
-  if (!newProduct) {
-    res.sendStatus(422);
-    return;
-  }
-
-  await sushiService.create(newProduct)
-
-  res.statusCode = 201;
-  res.send(newProduct);
-});
-
 app.get('/sushi', async (req, res) => {
   const sushi = await sushiService.getAll();
-  res.send(sushi)
+  if (req.query.count) {
+    res.send(sushi.slice(0, req.query.count))
+  } else {
+    res.send(sushi);
+  }
 });
 
 app.get('/sushi/:sushiId', async (req, res) => {
@@ -272,7 +264,11 @@ app.post('/sushi', async (req, res) => {
 
 app.get('/pizzas', async (req, res) => {
   const pizzas = await pizzaService.getAll();
-  res.send(pizzas);
+  if (req.query.count) {
+    res.send(pizzas.slice(0, req.query.count))
+  } else {
+    res.send(pizzas);
+  }
 });
 
 app.get('/pizzas/:pizzaId', async (req, res) => {
