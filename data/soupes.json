@@ -1,0 +1,68 @@
+[
+  {
+    "name": "Місо суп з вугром",
+    "price": 169,
+    "weight": 250,
+    "img": "https://pizzalife.ua/files/images/265/2/%D0%BC%D0%B8%D1%81%D0%BE%20%D1%81%20%D1%83%D0%B3%D1%80%D0%B5%D0%BC.jpg",
+    "id": "4e10cf94-411a-4e73-a576-95197e4e6f9c",
+    "components": "Вугор, місо паста, вакаме, сир Фета, куряче яйце",
+    "types": [
+      "Японські супи"
+    ]
+  },
+  {
+    "name": "Місо суп з лососем",
+    "price": 119,
+    "weight": 250,
+    "img": "https://pizzalife.ua/files/images/267/2/%D0%BC%D0%B8%D1%81%D0%BE%20%D1%81%D1%83%D0%BF%20%D1%81%20%D0%BB%D0%BE%D1%81%D0%BE%D1%81%D0%B5%D0%BC.jpg",
+    "id": "78645b09-52d2-4533-972d-ebaeb8152fb1",
+    "components": "Лосось, місо паста, вакаме, сир Фета",
+    "types": [
+      "Японські супи"
+    ]
+  },
+  {
+    "name": "Суп Консоме",
+    "price": 75,
+    "weight": 350,
+    "img": "https://pizzalife.ua/files/images/118/2/%D1%81%D1%83%D0%BF%20%D1%81%20%D0%BB%D0%B0%D0%BF%D1%88%D0%BE%D0%B9.jpg",
+    "id": "27c91e12-71f9-4a96-bf4c-1aaa5501ef01",
+    "components": "Легкий дієтичний суп",
+    "types": [
+      "Перші страви"
+    ]
+  },
+  {
+    "name": "Солянка",
+    "price": 85,
+    "weight": 350,
+    "img": "https://pizzalife.ua/files/images/119/2/%D1%81%D0%BE%D0%BB%D1%8F%D0%BD%D0%BA%D0%B0%20(2).jpg",
+    "id": "4771eb6e-7330-43f3-a88a-77cf9fe808e7",
+    "components": "Наваристий на копчених ребрах суп з картоплею та томатами",
+    "types": [
+      "Перші страви"
+    ]
+  },
+  {
+    "name": "Борщ",
+    "price": 75,
+    "weight": 350,
+    "img": "https://pizzalife.ua/files/images/120/2/%D0%B1%D0%BE%D1%80%D1%89.jpg",
+    "id": "15acc168-ffc6-43eb-832e-e0c25f1bcb60",
+    "components": "Традиційна українська страва. Подається зі сметаною",
+    "types": [
+      "Перші страви"
+    ]
+  },
+  {
+    "name": "Окрошка",
+    "price": 79,
+    "weight": 350,
+    "img": "https://pizzalife.ua/files/images/121/2/%D0%BE%D0%BA%D1%80%D0%BE%D1%88%D0%BA%D0%B0.jpg",
+    "id": "66657879-5939-40ed-9f1c-798a0671a766",
+    "components": "Тонізуючий літній суп на мінеральній воді",
+    "types": [
+      "Перші страви"
+    ]
+  }
+]

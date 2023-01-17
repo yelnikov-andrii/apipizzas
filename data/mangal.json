@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Свинячий підгорок",
+    "price": 140,
+    "weight": 200,
+    "img": "https://pizzalife.ua/files/images/398/2/%D0%9F%D0%BE%D0%B4%D0%B3%D0%BE%D1%80%D0%BE%D0%BA%202.png",
+    "id": "6fed0d65-9616-4156-80d5-92a88cdd6e62",
+    "components": ""
+  },
+  {
+    "name": "Шашлик курячий гриль",
+    "price": 120,
+    "weight": 200,
+    "img": "https://pizzalife.ua/files/images/399/2/%D0%A8%D0%B0%D1%88%D0%BB%D1%8B%D0%BA%20%D0%BA%D1%83%D1%80%D0%B8%D0%BD%D1%8B%D0%B9%202.png",
+    "id": "558e0b8f-3445-4664-97ef-b82af6315598",
+    "components": ""
+  },
+  {
+    "name": "Курячі крильця гриль",
+    "price": 100,
+    "weight": 200,
+    "img": "https://pizzalife.ua/files/images/400/2/%D0%9A%D1%80%D1%8B%D0%BB%D0%BE%202.png",
+    "id": "a10e938d-da4e-433f-8d5d-05dc201ec244",
+    "components": ""
+  },
+  {
+    "name": "Люля кебаб свино-говяжий",
+    "price": 120,
+    "weight": 200,
+    "img": "https://pizzalife.ua/files/images/401/2/%D0%BB%D1%8E%D0%BB%D1%8F%20%D0%BA%D0%B5%D0%B1%D0%B0%D0%B12.png",
+    "id": "6ccd1b8d-f37e-4ecd-9d71-e9fb88e9f76e",
+    "components": ""
+  },
+  {
+    "name": "Люля кебаб курячий",
+    "price": 110,
+    "weight": 200,
+    "img": "https://pizzalife.ua/files/images/401/2/%D0%BB%D1%8E%D0%BB%D1%8F%20%D0%BA%D0%B5%D0%B1%D0%B0%D0%B12.png",
+    "id": "72b5bd94-d734-414b-97a8-24cad58ef912",
+    "components": ""
+  },
+  {
+    "name": "Печериці гриль",
+    "price": 99,
+    "weight": 200,
+    "img": "https://pizzalife.ua/files/images/404/2/%D0%BF%D1%87%D0%B5%D1%80%D0%B8%D1%86%D1%8B.png",
+    "id": "4b5889ad-a8fb-4ac5-8598-39fb32a20fd5",
+    "components": ""
+  },
+  {
+    "name": "Лаваш 1шт",
+    "price": 15,
+    "weight": 0,
+    "img": "https://pizzalife.ua/files/images/405/2/%D0%BB%D0%B0%D0%B2%D0%B0%D1%88%202.png",
+    "id": "a18ebc82-5f72-4037-a7f2-82050228c9dc",
+    "components": ""
+  },
+  {
+    "name": "Лаваш гриль з моцарелою та куркою",
+    "price": 99,
+    "weight": 0,
+    "img": "https://pizzalife.ua/files/images/423/2/%D0%A1%D1%83%D0%BB%D1%83%D0%B3%D1%83%D0%BD%D0%B8%202.jpg",
+    "id": "1eda6dba-fd57-4dcd-a8aa-99aed8971131",
+    "components": "Лаваш гриль з моцарелою, куркою, помидором та зеленю."
+  },
+  {
+    "name": "Лаваш гриль з моцарелою",
+    "price": 79,
+    "weight": 0,
+    "img": "https://pizzalife.ua/files/images/423/2/%D0%A1%D1%83%D0%BB%D1%83%D0%B3%D1%83%D0%BD%D0%B8%202.jpg",
+    "id": "8c6921d8-f34b-4d8b-b40f-a4d3cdc3ab3b",
+    "components": "Лаваш гриль з моцарелою, помидором та зеленю."
+  }
+]
