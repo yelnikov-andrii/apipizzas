@@ -7,9 +7,12 @@ import { router as saladsRouter} from './routes/salads.js';
 import { router as mangalRouter} from './routes/mangal.js';
 import { router as snackRouter} from './routes/snack.js';
 import { router as soupesRouter} from './routes/soupes.js';
+import { callsRouter } from './routes/calls.js';
+import { feedabackRouter } from './routes/feedback.js';
+import { ordersRouter } from './routes/orders.js';
 
 const app = express();
-const PORT = 5000 || process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
@@ -22,5 +25,8 @@ app.use(saladsRouter);
 app.use(mangalRouter);
 app.use(snackRouter);
 app.use(soupesRouter);
+app.use(callsRouter);
+app.use(feedabackRouter);
+app.use(ordersRouter);
 
 app.listen(PORT);
