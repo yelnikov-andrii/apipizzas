@@ -1,32 +1,35 @@
 import express from 'express';
 import cors from 'cors';
-import { router as pizzasRouter} from './routes/pizzas.js';
-import { router as sushiRouter} from './routes/sushi.js';
-import { router as shaurmaRouter} from './routes/shaurma.js';
-import { router as saladsRouter} from './routes/salads.js';
-import { router as mangalRouter} from './routes/mangal.js';
-import { router as snackRouter} from './routes/snack.js';
-import { router as soupesRouter} from './routes/soupes.js';
-import { callsRouter } from './routes/calls.js';
-import { feedabackRouter } from './routes/feedback.js';
-import { ordersRouter } from './routes/orders.js';
+import { callsRouter } from './routes/callsRouter.js';
+import { feedabackRouter } from './routes/feedbackRouter.js';
+import { ordersRouter } from './routes/ordersRouter.js';
+import { authRouter } from './routes/authRouter.js';
+import { typeRouter } from './routes/typeRouter.js';
+import { productRouter } from './routes/productRouter.js';
+import { errorMiddleware } from './middlewares/errorMiddleware.js';
+import cookieParser from 'cookie-parser';
 
 const app = express();
-const PORT = 5000 || process.env.PORT;
+app.use(cookieParser());
 
-app.use(cors());
+app.use(cors({
+  credentials: true,
+  origin:
+    process.env.NODE_ENV === "production"
+      ? process.env.CLIENT_URL
+      : "http://localhost:3000",
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true} ));
 
-app.use(pizzasRouter);
-app.use(sushiRouter);
-app.use(shaurmaRouter);
-app.use(saladsRouter);
-app.use(mangalRouter);
-app.use(snackRouter);
-app.use(soupesRouter);
 app.use(callsRouter);
 app.use(feedabackRouter);
 app.use(ordersRouter);
+app.use(authRouter);
+app.use(typeRouter);
+app.use(productRouter);
+app.use(errorMiddleware);
 
-app.listen(PORT);
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => console.log(`Server is running on ${PORT}`));

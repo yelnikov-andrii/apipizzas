@@ -17,7 +17,10 @@ export const Order = sequelize.define('order', {
   products: {
     type: DataTypes.STRING,
     allowNull: false
-  }
+  },
+    email: {
+      type: DataTypes.STRING,
+    }
 }, {
   // Other model options go here
 });
