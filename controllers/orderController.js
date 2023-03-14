@@ -1,4 +1,6 @@
 import { orderService } from "../services/orderService.js";
+import { ApiError } from "../exceptions/ApiError.js";
+import { jwtService } from "../services/jwtService.js";
 
 async function add(req, res) {
   const { name, phone, address, products, email } = req.body;
@@ -8,6 +10,25 @@ async function add(req, res) {
 
 async function getOrders(req, res) {
   const { email, id } = req.query;
+
+  const authHeader = req.headers['authorization'];
+
+  if (!authHeader) {
+    throw ApiError.Unauthorized();
+  }
+
+  const [, accessToken] = authHeader.split(' ');
+
+  if (!accessToken) {
+    throw ApiError.Unauthorized();
+  }
+
+  const userData = jwtService.validateAccessToken(accessToken);
+
+  if (!userData) {
+    throw ApiError.Unauthorized();
+  }
+
 
   if (!email && id) {
     const order = await orderService.getById(id);
