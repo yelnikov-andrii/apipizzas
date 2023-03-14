@@ -5,7 +5,6 @@ export function catchError(action) {
     }
 
     catch(e) {
-      console.log(e)
       next(e)
     }
   }

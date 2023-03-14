@@ -5,7 +5,6 @@ export const authMiddleware = (req, res, next) => {
   const authHeader = req.headers['authorization'];
 
   if (!authHeader) {
-    console.log('not authheader')
     throw ApiError.Unauthorized();
   }
 
