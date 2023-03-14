@@ -1,7 +1,7 @@
 import { jwtService } from '../services/jwtService.js';
 import { ApiError } from '../exceptions/ApiError.js';
 
-const authMiddleware = (req, res, next) => {
+export async function authMiddleware (req, res, next) {
   const authHeader = req.headers['authorization'];
 
   if (!authHeader) {
@@ -21,8 +21,4 @@ const authMiddleware = (req, res, next) => {
   }
 
   next();
-}
-
-export const authMiddleWare = {
-  authMiddleware
 }
