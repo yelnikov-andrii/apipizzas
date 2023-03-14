@@ -7,5 +7,5 @@ export const ordersRouter = express.Router();
 
 
 ordersRouter.post('/orders', catchError(orderController.add));
-ordersRouter.get('/orders', catchError(authMiddleware), catchError(orderController.getOrders));
+// ordersRouter.get('/orders', catchError(authMiddleware), catchError(orderController.getOrders));
 
