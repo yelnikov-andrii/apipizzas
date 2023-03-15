@@ -84,6 +84,7 @@ async function sendAuthentication(res, user) {
 async function refresh(req, res) {
   const { refreshToken } = req.cookies;
   const userData = jwtService.validateRefreshToken(refreshToken);
+  console.log(userData)
   if (!userData) {
     throw ApiError.Unauthorized();
   }
