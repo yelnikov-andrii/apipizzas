@@ -17,7 +17,7 @@ app.use(cors({
   // origin: 'https://yelnikov-andrii.github.io/pizza2'
   origin:
     process.env.NODE_ENV === "production"
-      ? process.env.CLIENT_URL
+      ? process.env.CLIENT_URL + '/pizza2'
       : "http://localhost:3000",
 }));
 app.use(express.json());
