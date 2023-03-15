@@ -71,7 +71,11 @@ async function sendAuthentication(res, user) {
   const accessToken = jwtService.generateAccessToken(userData);
   const refreshToken = jwtService.generateRefreshToken(userData);
   await tokenService.save(user.id, refreshToken);
-  res.cookie('refreshToken', refreshToken)
+  res.cookie('refreshToken', refreshToken, {
+    httpOnly: true,
+    sameSite: 'none',
+    secure: true
+  })
 
     res.send({user: userData, accessToken});
 }
