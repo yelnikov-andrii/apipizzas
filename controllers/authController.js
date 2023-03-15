@@ -106,9 +106,10 @@ async function logout(req, res) {
 
   if (userData) {
     await tokenService.remove(userData.id);
+    res.sendStatus(204)
   }
 
-  res.sendStatus(204)
+  res.sendStatus(205)
 }
 
 export const authController = {
