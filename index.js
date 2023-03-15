@@ -14,11 +14,11 @@ app.use(cookieParser());
 
 app.use(cors({
   credentials: true,
-  // origin: 'https://yelnikov-andrii.github.io/pizza2'
-  origin:
-    process.env.NODE_ENV === "production"
-      ? 'https://yelnikov-andrii.github.io/pizza2'
-      : "http://localhost:3000",
+  origin: 'https://yelnikov-andrii.github.io/pizza2'
+  // origin:
+  //   process.env.NODE_ENV === "production"
+  //     ? 'https://yelnikov-andrii.github.io/pizza2'
+  //     : "http://localhost:3000",
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true} ));
