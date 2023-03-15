@@ -101,7 +101,7 @@ async function refresh(req, res) {
 
 async function logout(req, res) {
   const { refreshToken } = req.cookies;
-
+  console.log(refreshToken, 'logout');
   const userData = jwtService.validateRefreshToken(refreshToken);
   res.clearCookie('refreshToken');
 
