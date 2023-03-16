@@ -45,6 +45,10 @@ async function login(req, res) {
     throw ApiError.BadRequest('User with this email does not exist', {email: 'User with this email does not exist'})
   }
 
+  if (user.activationToken) {
+    throw ApiError.BadRequest('User was not activated');
+  }
+
   const passwordIsValid = await bcrypt.compare(password, user.password)
 
   if (!passwordIsValid) {

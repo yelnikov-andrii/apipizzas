@@ -22,7 +22,7 @@ function send({email, subject, html}) {
 }
 
 function sendActivationLink(token, email) {
-  let link = `https://yelnikov-andrii.github.io/pizza2/activation/${token}`
+  let link = `https://yelnikov-andrii.github.io/pizza2/#/activation/${token}`
   send({
     email,
     subject: 'Account activation',
