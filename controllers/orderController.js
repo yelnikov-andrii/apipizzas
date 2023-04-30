@@ -4,6 +4,7 @@ import { jwtService } from "../services/jwtService.js";
 
 async function add(req, res) {
   const { name, phone, address, products, email } = req.body;
+  console.log(req.body, 'body')
   await orderService.add({ name, phone, address, products, email });
   res.sendStatus(201);
 };

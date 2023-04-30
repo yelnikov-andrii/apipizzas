@@ -40,6 +40,7 @@ async function register(req, res) {
 
 async function login(req, res) {
   const { email, password } = req.body;
+  console.log(email);
   const user = await userService.getByEmail(email)
   if (!user) {
     throw ApiError.BadRequest('User with this email does not exist', {email: 'User with this email does not exist'})

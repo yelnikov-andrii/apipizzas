@@ -10,7 +10,6 @@ export const Call = sequelize.define('call', {
   number: {
     type: DataTypes.STRING,
     allowNull: false,
-    unique: true,
   },
 }, {
   // Other model options go here
