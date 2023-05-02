@@ -12,15 +12,23 @@ const create = async (req, res) => {
 
 async function getProducts(req, res) {
   const { typeId, count } = req.query;
-  const products = await Product.findAll({where: {
-    typeId
-}});
 
-if (count) {
-  res.send(products.slice(0, count));
-} else {
+  let products;
+  if (typeId) {
+    products = await Product.findAll({
+      where: {
+        typeId
+      }
+    });
+  } else {
+    products = await Product.findAll();
+  }
+
+  if (count) {
+    products = products.slice(0, count);
+  }
+
   res.send(products);
-}
 }
 
 async function getOne(req, res) {
