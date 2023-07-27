@@ -14,9 +14,9 @@ import { Sequelize } from 'sequelize';
 // }
 // );
 
-export const sequelize = new Sequelize('test1_z267', 'test1_z267_user', 'qrg9dYQEhY2ERzNuigfXKFeBLl9GVu54', {
-  // host: 'dpg-ch5v5p5gk4qc132r5vhg-a.oregon-postgres.render.com',
-  host: 'dpg-ch5v5p5gk4qc132r5vhg-a',
+export const sequelize = new Sequelize('mydatabase_72zt', 'mydatabase_72zt_user', 'qrg9dYQEhY2ERzNuigfXKFeBLl9GVu54fGLaWaqj0QKb8dBGVl8L41rUMzYiFveJ', {
+  // host: 'dpg-cj1ce115rnuhn3luqang-a.oregon-postgres.render.com',
+  host: 'dpg-cj1ce115rnuhn3luqang-a',
   dialectOptions: {
     ssl: {
       require: true,
@@ -25,7 +25,7 @@ export const sequelize = new Sequelize('test1_z267', 'test1_z267_user', 'qrg9dYQ
   },
   dialect: 'postgres',
   logging: false,
-})
+});
 
 try {
   await sequelize.authenticate();
