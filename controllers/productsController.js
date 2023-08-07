@@ -1,5 +1,6 @@
 import { Product } from '../models/product.js';
 import { productService } from '../services/productService.js';
+import { Op } from 'sequelize';
 
 const create = async (req, res) => {
   const { name, components, prices, sizes, souses, categories, dough, img, price, count, weight, typeId } = req.body;
@@ -11,8 +12,7 @@ const create = async (req, res) => {
 };
 
 async function getProducts(req, res) {
-  const { typeId, count } = req.query;
-
+  let { typeId, count, page, limit, category } = req.query;
   let products;
   if (typeId) {
     products = await Product.findAll({
@@ -26,9 +26,43 @@ async function getProducts(req, res) {
 
   if (count) {
     products = products.slice(0, count);
+    res.send(products);
+    return;
   }
 
-  res.send(products);
+  if (!count) {
+    if (category) {
+      const productsByCategory = await Product.findAll({where: {
+        categories: {
+          [Op.contains]: [category]
+        }
+      }});
+
+      if (!page && !limit) {
+        res.send(productsByCategory);
+        return;
+      }
+        
+        const totalCount = productsByCategory.length;
+        const firstItem = page * limit - limit;
+        const lastItem = page * limit;
+        const productsToSend = productsByCategory.slice(firstItem, lastItem);
+        res.send({totalCount, data: productsToSend, page});
+        return;
+    }
+    
+    if (!page && !limit) {
+      res.send(products);
+      return;
+    }
+
+    const totalCount = products.length;
+    const firstItem = page * limit - limit;
+    const lastItem = page * limit;
+    const productsToSend = products.slice(firstItem, lastItem);
+    res.send({totalCount, data: productsToSend, page});
+    return;
+  }
 }
 
 async function getOne(req, res) {

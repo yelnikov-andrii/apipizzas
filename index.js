@@ -12,14 +12,7 @@ import cookieParser from 'cookie-parser';
 const app = express();
 app.use(cookieParser());
 
-app.use(cors({
-  credentials: true,
-  // origin: 'https://yelnikov-andrii.github.io'
-  origin:
-    process.env.NODE_ENV === "production"
-      ? 'https://yelnikov-andrii.github.io'
-      : "http://localhost:3000",
-}));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true} ));
 

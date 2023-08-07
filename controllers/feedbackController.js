@@ -5,7 +5,6 @@ async function add(req, res) {
   console.log(req.body, 'feedback')
   await feedbackService.add({ name, number, email, message });
   res.sendStatus(201);
-
 };
 
 export const feedbackController = {

@@ -50,7 +50,7 @@ async function login(req, res) {
     throw ApiError.BadRequest('User was not activated');
   }
 
-  const passwordIsValid = await bcrypt.compare(password, user.password)
+  const passwordIsValid = await bcrypt.compare(password, user.password);
 
   if (!passwordIsValid) {
     throw ApiError.BadRequest('Wrong password', {password: 'Wrong password'});
@@ -81,7 +81,7 @@ async function sendAuthentication(res, user) {
     httpOnly: true,
     sameSite: 'none',
     secure: true
-  })
+  });
 
     res.send({user: userData, accessToken});
 }
@@ -112,10 +112,11 @@ async function logout(req, res) {
 
   if (userData) {
     await tokenService.remove(userData.id);
-    res.sendStatus(204)
+    res.sendStatus(204);
+    return;
   }
 
-  res.sendStatus(205)
+  res.sendStatus(205);
 }
 
 export const authController = {
