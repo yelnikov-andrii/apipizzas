@@ -8,6 +8,7 @@ import { typeRouter } from './routes/typeRouter.js';
 import { productRouter } from './routes/productRouter.js';
 import { errorMiddleware } from './middlewares/errorMiddleware.js';
 import cookieParser from 'cookie-parser';
+import { router } from './routes/index.js';
 
 const app = express();
 app.use(cookieParser());
@@ -15,13 +16,14 @@ app.use(cookieParser());
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true} ));
+app.use(router);
 
-app.use(callsRouter);
-app.use(feedabackRouter);
-app.use(ordersRouter);
-app.use(authRouter);
-app.use(typeRouter);
-app.use(productRouter);
+// app.use(callsRouter);
+// app.use(feedabackRouter);
+// app.use(ordersRouter);
+// app.use(authRouter);
+// app.use(typeRouter);
+// app.use(productRouter);
 app.use(errorMiddleware);
 
 const PORT = process.env.PORT || 5000;
