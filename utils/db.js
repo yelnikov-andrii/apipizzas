@@ -14,7 +14,20 @@ import { Sequelize } from 'sequelize';
 // }
 // );
 
-export const sequelize = new Sequelize('mydatabase_72zt', 'mydatabase_72zt_user', 'fGLaWaqj0QKb8dBGVl8L41rUMzYiFveJ', {
+// export const sequelize = new Sequelize('mydatabase_72zt', 'mydatabase_72zt_user', 'fGLaWaqj0QKb8dBGVl8L41rUMzYiFveJ', {
+//   host: 'dpg-cj1ce115rnuhn3luqang-a.oregon-postgres.render.com',
+//   // host: 'dpg-cj1ce115rnuhn3luqang-a',
+//   dialectOptions: {
+//     ssl: {
+//       require: true,
+//       rejectUnauthorized: false,
+//     }
+//   },
+//   dialect: 'postgres',
+//   logging: false,
+// });
+
+export const sequelize = new Sequelize('database_24_10', 'database_24_10_user', 'OwfCX0mNX9Gl6bwkIBPPjgXNjLOFoA7c', {
   host: 'dpg-cj1ce115rnuhn3luqang-a.oregon-postgres.render.com',
   // host: 'dpg-cj1ce115rnuhn3luqang-a',
   dialectOptions: {
