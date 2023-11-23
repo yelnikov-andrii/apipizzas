@@ -9,7 +9,7 @@ app.use(cookieParser());
 
 app.use(cors({
   credentials: true,
-  origin: true
+  origin: ['https://netify--pizza3.netlify.app/', 'http://localhost:3000']
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true} ));
