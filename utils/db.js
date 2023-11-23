@@ -28,8 +28,8 @@ import { Sequelize } from 'sequelize';
 // });
 
 export const sequelize = new Sequelize('database_24_10', 'database_24_10_user', 'OwfCX0mNX9Gl6bwkIBPPjgXNjLOFoA7c', {
-  host: 'dpg-cks1f9mnfb1c73eo9du0-a.oregon-postgres.render.com',
-  // host: 'dpg-cj1ce115rnuhn3luqang-a',
+  // host: 'dpg-cks1f9mnfb1c73eo9du0-a.oregon-postgres.render.com',
+  host: 'dpg-cks1f9mnfb1c73eo9du0-a',
   dialectOptions: {
     ssl: {
       require: true,

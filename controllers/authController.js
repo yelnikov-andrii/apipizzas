@@ -76,6 +76,7 @@ async function sendAuthentication(res, user) {
   const accessToken = jwtService.generateAccessToken(userData);
   const refreshToken = jwtService.generateRefreshToken(userData);
   await tokenService.save(user.id, refreshToken);
+  
   res.cookie('refreshToken', refreshToken, {
     maxAge: 1000 * 60 * 60 * 24,
     httpOnly: true,
