@@ -9,8 +9,13 @@ app.use(cookieParser());
 
 app.use(cors({
   credentials: true,
-  origin: true,
+  origin:
+    process.env.NODE_ENV === "production"
+      ? ['https://yelnikov-andrii.github.io', 'https://pizza3.netlify.app']
+      : "http://localhost:3000",
 }));
+
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true} ));
 app.use(router);
