@@ -78,9 +78,9 @@ async function sendAuthentication(res, user) {
   await tokenService.save(user.id, refreshToken);
 
   res.cookie('refreshToken', refreshToken, {
-    maxAge: 1000 * 15,
+    maxAge: 1000 * 60 * 60 * 24,
     httpOnly: true,
-    sameSite: 'none',
+    sameSite: 'Lax',
     secure: true
   });
 
