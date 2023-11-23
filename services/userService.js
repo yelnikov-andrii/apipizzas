@@ -1,7 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
-import { User } from "../models/user.js";
+import { User } from "../models/index.js";
 import { emailService } from './emailService.js';
-import { jwtService } from './jwtService.js';
 import { ApiError } from "../exceptions/ApiError.js";
 import bcrypt from 'bcrypt';
 

@@ -1,4 +1,4 @@
-import { Token } from "../models/token.js";
+import { Token } from "../models/index.js";
 
 async function save(userId, refreshToken) {
   const token = await Token.findOne({where: {

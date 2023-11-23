@@ -1,4 +1,4 @@
-import { Call } from "../models/call.js";
+import { Call } from "../models/index.js";
 
 async function add({name, number}) {
   await Call.create({name, number});

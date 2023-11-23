@@ -1,5 +1,5 @@
 import { userService } from "../services/userService.js";
-import { User } from "../models/user.js";
+import { User } from "../models/index.js";
 import { jwtService } from "../services/jwtService.js";
 import { ApiError } from "../exceptions/ApiError.js";
 import { tokenService } from "../services/tokenService.js";
@@ -79,7 +79,7 @@ async function sendAuthentication(res, user) {
 
   res.cookie('refreshToken', refreshToken, {
     maxAge: 1000 * 15,
-    httpOnly: true,
+    // httpOnly: true,
     // sameSite: 'none',
     // secure: true
   });

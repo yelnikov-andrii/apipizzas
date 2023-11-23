@@ -1,4 +1,4 @@
-import { Type } from "../models/type.js";
+import { Type } from "../models/index.js";
 
 async function createType({ name }) {
   await Type.create({ name });

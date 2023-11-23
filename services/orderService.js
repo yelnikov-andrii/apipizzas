@@ -1,4 +1,4 @@
-import { Order } from "../models/order.js";
+import { Order } from "../models/index.js";
 
 async function add({name, phone, address, products, email}) {
   await Order.create({name, phone, address, products, email});
