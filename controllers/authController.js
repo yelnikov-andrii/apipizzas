@@ -80,7 +80,7 @@ async function sendAuthentication(res, user) {
   res.cookie('refreshToken', refreshToken, {
     maxAge: 1000 * 60 * 60 * 24,
     httpOnly: true,
-    sameSite: 'Lax',
+    sameSite: 'Strict',
     secure: true
   });
 
