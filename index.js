@@ -11,7 +11,7 @@ app.use(cors({
   credentials: true,
   origin:
     process.env.NODE_ENV === "production"
-      ? ['https://yelnikov-andrii.github.io', 'https://pizza3.netlify.app']
+      ? ['https://yelnikov-andrii.github.io', 'https://pizza3.netlify.app', 'http://localhost:3000']
       : "http://localhost:3000",
 }));
 
