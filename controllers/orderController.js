@@ -12,25 +12,6 @@ async function add(req, res) {
 async function getOrders(req, res) {
   const { email, id } = req.query;
 
-  const authHeader = req.headers['authorization'];
-
-  if (!authHeader) {
-    throw ApiError.Unauthorized();
-  }
-
-  const [, accessToken] = authHeader.split(' ');
-
-  if (!accessToken) {
-    throw ApiError.Unauthorized();
-  }
-
-  const userData = jwtService.validateAccessToken(accessToken);
-
-  if (!userData) {
-    throw ApiError.Unauthorized();
-  }
-
-
   if (!email && id) {
     const order = await orderService.getById(id);
     res.send(order);
