@@ -66,6 +66,11 @@ async function activate(req, res) {
     activationToken
   }});
 
+  if (!user) {
+    res.sendStatus(500).message('User is already activated');
+    return;
+  }
+
   user.activationToken = null;
   await user.save();
   await sendAuthentication(res, user);

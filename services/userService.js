@@ -20,8 +20,8 @@ async function registerUser({email, password}) {
   emailService.sendActivationLink(activationToken, email);
 }
 
-function normalize({email, id}) {
-  return {email, id};
+function normalize({ email, id, role }) {
+  return { email, id, role };
 }
 
 async function getByEmail(email) {

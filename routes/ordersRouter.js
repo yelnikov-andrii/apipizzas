@@ -7,4 +7,5 @@ export const ordersRouter = express.Router();
 
 ordersRouter.post('/orders', catchError(orderController.add));
 ordersRouter.get('/orders', catchError(orderController.getOrders));
+ordersRouter.patch('/orders/:orderId', catchError(orderController.setOrderFinished));
 

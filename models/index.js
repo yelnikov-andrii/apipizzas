@@ -56,9 +56,12 @@ export const Order = sequelize.define('order', {
     type: DataTypes.STRING,
     allowNull: false
   },
-    email: {
-      type: DataTypes.STRING,
-    }
+  email: {
+    type: DataTypes.STRING,
+  },
+  status: {
+    type: DataTypes.STRING,
+  }
 }, {
   // Other model options go here
 });
@@ -122,6 +125,10 @@ export const User = sequelize.define('user', {
   password: {
     type: DataTypes.STRING,
     allowNull: false,
+  },
+  role: {
+    type: DataTypes.STRING,
+    defaultValue: 'user'
   },
   activationToken: {
     type: DataTypes.STRING
