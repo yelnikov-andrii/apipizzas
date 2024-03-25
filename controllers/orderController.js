@@ -53,5 +53,5 @@ async function updateOrder(req, res) {
 export const orderController = {
   add,
   getOrders,
-  setOrderFinished
+  updateOrder
 }
