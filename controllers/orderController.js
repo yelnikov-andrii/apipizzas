@@ -21,7 +21,6 @@ async function getOrders(req, res) {
     res.send(orders);
     return;
   }
-  console.log(role)
 
   if (role === 'admin') {
     const orders = await Order.findAll();
@@ -34,15 +33,15 @@ async function getOrders(req, res) {
 
 }
 
-async function setOrderFinished(req, res) {
-  const { isFinished } = req.body;
+async function updateOrder(req, res) {
+  const { status } = req.body;
   const { orderId } = req.params;
   try {
     const foundOrder = await Order.findOne({ where: { id: orderId } });
     if (!foundOrder) {
       return res.status(404).json({ message: "Order not found" });
     }
-    foundOrder.status = isFinished;
+    foundOrder.status = status;
     await foundOrder.save();
     return res.status(200).json({ message: "Order status updated successfully" });
   } catch (error) {
