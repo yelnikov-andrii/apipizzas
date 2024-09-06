@@ -16,7 +16,7 @@ async function registerUser({email, password}) {
   const hash = await bcrypt.hash(password, 10);
 
   await User.create({email, password: hash, activationToken});
-  console.log(email, 'email to send message')
+
   emailService.sendActivationLink(activationToken, email);
 }
 

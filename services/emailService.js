@@ -12,6 +12,7 @@ let transporter = nodemailer.createTransport({
 });
 
 function send({email, subject, html}) {
+  console.log(send, transporter)
   return transporter.sendMail({
     from: 'Authorization API',
     to: email,
@@ -22,7 +23,7 @@ function send({email, subject, html}) {
 }
 
 function sendActivationLink(token, email) {
-  let link = `https://food-delivery-next-js-pi.vercel.app/activation/${token}`
+  let link = `https://food-delivery-next-js-pi.vercel.app/activation/${token}`;
   send({
     email,
     subject: 'Account activation',
