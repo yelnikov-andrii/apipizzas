@@ -14,6 +14,7 @@ const create = async (req, res) => {
 async function getProducts(req, res) {
   let { typeId, count, page, limit, category } = req.query;
   let products;
+  
   if (typeId) {
     products = await Product.findAll({
       where: {
